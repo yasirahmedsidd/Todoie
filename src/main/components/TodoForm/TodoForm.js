@@ -3,16 +3,22 @@ import "./TodoForm.scss";
 import shortId from "shortid";
 const TodoForm = ({ todos, setTodos }) => {
   const [inputValue, setInputValue] = useState("");
+  const [isEmpty, setIsEmpty] = useState(false);
   const onClickHandler = () => {
-    setTodos([
-      ...todos,
-      {
-        id: shortId.generate(),
-        task: inputValue,
-        isCompleted: false
-      }
-    ]);
-    setInputValue("");
+    if (inputValue !== "") {
+      setTodos([
+        ...todos,
+        {
+          id: shortId.generate(),
+          task: inputValue,
+          isCompleted: false
+        }
+      ]);
+      setInputValue("");
+      setIsEmpty(false);
+    } else {
+      setIsEmpty(true);
+    }
   };
 
   return (
@@ -26,6 +32,7 @@ const TodoForm = ({ todos, setTodos }) => {
           onChange={e => setInputValue(e.target.value)}
         />
         <button onClick={onClickHandler}>Add</button>
+        {isEmpty && inputValue === "" && <label>Enter a value</label>}
       </form>
     </div>
   );
