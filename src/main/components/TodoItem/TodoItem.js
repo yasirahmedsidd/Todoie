@@ -11,31 +11,44 @@ const TodoItem = ({ todo, todoCompleted, todoDelete, updateEditedTodo }) => {
   };
   const completedTodoStyles = {
     textDecoration: todo.isCompleted ? "line-through" : "",
-    color: todo.isCompleted ? "grey" : "black"
+    color: todo.isCompleted && "#888888"
   };
+
   return (
     <>
       {!isEditting ? (
-        <div>
-          <h3
-            style={completedTodoStyles}
-            onClick={() => todoCompleted(todo.id)}
-          >
-            {todo.task}
-          </h3>
+        <div className="Todoitem">
           <button
+            className="edit-btn"
             style={{ cursor: todo.isCompleted ? "none" : "pointer" }}
             disabled={todo.isCompleted}
             onClick={() => {
               setIsEditting(true);
             }}
           >
-            Edit
+            <i
+              className="material-icons"
+              style={{ color: todo.isCompleted && "#888888" }}
+            >
+              edit
+            </i>
           </button>
-          <button onClick={() => todoDelete(todo.id)}>Delete</button>
+          <button
+            className="edit-btn del-btn"
+            onClick={() => todoDelete(todo.id)}
+          >
+            <i className="material-icons">delete</i>
+          </button>
+          <h3
+            className="todo-item-task"
+            style={completedTodoStyles}
+            onClick={() => todoCompleted(todo.id)}
+          >
+            {todo.task}
+          </h3>
         </div>
       ) : (
-        <div>
+        <div className="edit-container">
           <input
             name="updateInput"
             type="text"

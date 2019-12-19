@@ -28,12 +28,18 @@ const TodoList = () => {
   };
 
   return (
-    <div>
+    <div className="Todolist">
+      <div className="header">
+        <h1 className="title">Todoie!</h1>
+        <h3 className="description">A Simple React Todo App.</h3>
+        <hr className="breaker" />
+      </div>
       {localStorage.setItem("todos", JSON.stringify(todos))}
       <TodoForm todos={todos} setTodos={setTodos} />
       {todos[0] === undefined ? (
-        <h3>Add a Task</h3>
+        <h3 className="no-task-danger">Add a Task</h3>
       ) : (
+        // <div className="TodoList-container">
         todos.map(todo => (
           <TodoItem
             key={todo.id}
@@ -43,6 +49,7 @@ const TodoList = () => {
             updateEditedTodo={updateEditedTodo}
           />
         ))
+        // </div>
       )}
     </div>
   );

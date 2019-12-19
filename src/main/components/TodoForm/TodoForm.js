@@ -22,17 +22,21 @@ const TodoForm = ({ todos, setTodos }) => {
   };
 
   return (
-    <div>
+    <div className="TodoForm">
       <form onSubmit={e => e.preventDefault()}>
-        <input
-          type="text"
-          placeholder="What To Do..."
-          value={inputValue}
-          autoFocus={true}
-          onChange={e => setInputValue(e.target.value)}
-        />
-        <button onClick={onClickHandler}>Add</button>
-        {isEmpty && inputValue === "" && <label>Enter a value</label>}
+        <div className="form-fields">
+          <input
+            type="text"
+            placeholder="What To Do..."
+            value={inputValue}
+            autoFocus={true}
+            onChange={e => setInputValue(e.target.value)}
+          />
+          <button onClick={onClickHandler}>Add</button>
+        </div>
+        <div className="value-danger">
+          {isEmpty && inputValue === "" && <label>* Enter a value</label>}
+        </div>
       </form>
     </div>
   );

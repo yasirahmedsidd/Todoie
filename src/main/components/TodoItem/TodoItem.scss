@@ -1,0 +1,81 @@
+.Todoitem {
+  padding: 0 3px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 350px;
+  padding: 20px 0;
+  .todo-item-task {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: white;
+    margin: 0;
+    &:hover {
+      cursor: pointer;
+      transition: all 0.3s ease-in 0s;
+    }
+  }
+  .edit-btn {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 0;
+    color: #fff;
+    outline: none;
+    i {
+      color: rgba(#fff, 0.7);
+      font-size: 18px;
+      outline: none;
+      transition: all 0.3s ease-in 0s;
+      &:hover {
+        color: rgba(#fff, 1);
+        cursor: pointer;
+      }
+    }
+  }
+  .del-btn {
+    margin-right: 5px;
+    i {
+      color: rgba(#fff, 0.7);
+      &:hover {
+        color: rgba(red, 0.7);
+        cursor: pointer;
+      }
+    }
+  }
+  &:hover {
+    background-color: rgba(#fff, 0.1);
+  }
+}
+.edit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  input {
+    height: 32px;
+    width: 275px;
+    border: none;
+    padding: 0 15px;
+    outline: none;
+    font-size: 20px;
+  }
+  button {
+    padding: 0;
+    border: none;
+    height: 32px;
+    width: 75px;
+    background-color: #0d1616;
+    outline: none;
+    color: #fff;
+    transition: all 0.3s ease-in 0s;
+    &:hover {
+      background-color: #1d3e3e;
+      cursor: pointer;
+    }
+  }
+}
